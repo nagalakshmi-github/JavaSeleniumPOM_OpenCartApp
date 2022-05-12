@@ -9,6 +9,7 @@ public class RemoveRepeatedCharactersOccuringConsecutively {
 
 	public static void main(String[] args) {
 		String input = "weelccoommee hhoommee java !!!!";
+		System.out.println("input string: "+input);
 		String output="";
 		int len=input.length();
 		for (int i = 0; i <input.length()-1; i++) {
