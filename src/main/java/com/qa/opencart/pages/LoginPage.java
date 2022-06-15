@@ -12,8 +12,8 @@ public class LoginPage {
 	private ElementUtil elementUtil;
 	private By email = By.id("input-email");
 	private By pwd = By.id("input-password");
-	private By loginBtn = By.xpath("//input[@value='Login']");
-	private By forgotPwdLink = By.linkText("Forgotten Password11");
+	private By loginBtn = By.xpath("//form[@id='form-login']//button");
+	private By forgotPwdLink = By.linkText("Forgotten Password");
 	private By registerLink = By.linkText("Register");
 	private By logoutLink = By.linkText("Logout");
 

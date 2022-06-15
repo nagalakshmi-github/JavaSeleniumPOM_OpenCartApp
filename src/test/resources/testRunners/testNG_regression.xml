@@ -4,21 +4,50 @@
 <suite name="Open Cart Test Suite" verbose="4" thread-count="5" parallel="tests">
 
 	<listeners>
-		<listener class-name="com.qa.opencart.listeners.ExtentReportListener"/>
-		<listener class-name="com.qa.opencart.listeners.TestAllureListener"/>
+		<listener class-name="com.qa.opencart.listeners.ExtentReportListener" />
+		<!-- <listener class-name="com.qa.opencart.listeners.TestAllureListener"/>-->
 	</listeners>
+<!--
+	<test name="Google Test chrome 89">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="89" />
+		<classes>
+			<class name="com.qa.opencart.tests.GoogleTest" />
+		</classes>
+	</test>
 
+	<test name="Google Test chrome 90">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90" />
+		<classes>
+			<class name="com.qa.opencart.tests.GoogleTest" />
+		</classes>
+	</test>
+-->
+	<test name="Google Test firefox">
+		<parameter name="browser" value="firefox" />
+		<parameter name="browserversion" value="83" />
+		<classes>
+			<class name="com.qa.opencart.tests.GoogleTest" />
+		</classes>
+	</test>
+	<!--
 	<test name="Open Cart Login Page Test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="89" />
 		<classes>
 			<class name="com.qa.opencart.tests.LoginPageTest" />
 		</classes>
 	</test>
 
 	<test name="Open Cart Accounts Page Test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="browserversion" value="90" />
 		<classes>
 			<class name="com.qa.opencart.tests.AccountsPageTest" />
 		</classes>
 	</test>
+-->
 	<!--
 	<test name="Open Cart Search Results Page Test">
 		<classes>

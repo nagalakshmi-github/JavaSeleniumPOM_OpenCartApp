@@ -319,7 +319,7 @@ public class ElementUtil {
 
 	/*---------------------- Wait utils for Visibility/invisibility of list of elements--------------------*/
 	public List<WebElement> waitForElementsToBeVisible(By locator, int timeout) {
-		WebDriverWait wait = new WebDriverWait(driver, timeout);
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
 		return wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
 	}
 
