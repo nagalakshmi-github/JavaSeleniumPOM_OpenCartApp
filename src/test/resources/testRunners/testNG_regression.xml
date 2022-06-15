@@ -15,7 +15,7 @@
 			<class name="com.qa.opencart.tests.GoogleTest" />
 		</classes>
 	</test>
-
+-->
 	<test name="Google Test chrome 90">
 		<parameter name="browser" value="chrome" />
 		<parameter name="browserversion" value="90" />
@@ -23,7 +23,8 @@
 			<class name="com.qa.opencart.tests.GoogleTest" />
 		</classes>
 	</test>
--->
+
+<!--
 	<test name="Google Test firefox">
 		<parameter name="browser" value="firefox" />
 		<parameter name="browserversion" value="83" />
@@ -31,7 +32,7 @@
 			<class name="com.qa.opencart.tests.GoogleTest" />
 		</classes>
 	</test>
-	<!--
+
 	<test name="Open Cart Login Page Test">
 		<parameter name="browser" value="chrome" />
 		<parameter name="browserversion" value="89" />
