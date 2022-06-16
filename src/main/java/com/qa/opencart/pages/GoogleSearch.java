@@ -33,6 +33,7 @@ public class GoogleSearch {
 		for (WebElement we : getGoogleSearchSuggestionsList()) {
 			if (we.getText().equals(txt)) {
 				we.click();
+				System.out.println("element clicked");
 				return true;
 			} else {
 				System.out.println("text searching for not found from google suggestions list");
