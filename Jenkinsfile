@@ -17,7 +17,7 @@ pipeline
         stage('Test') {
             steps {
                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                    git 'https://github.com/naveenanimation20/March2021EvePom.git'
+                    git 'https://github.com/nagalakshmi-github/JavaSeleniumPOM_OpenCartApp.git'
                     bat "mvn clean install"
                 }
             }
