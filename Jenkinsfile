@@ -1,45 +1,53 @@
-pipeline{
+pipeline 
+{
     agent any
-    
-    stages{
-        stage("Build"){
-            steps{
-                echo("build the project")
+    tools { 
+      maven 'maven' 
+    }
+
+    stages 
+    {
+        stage('Build') {
+            steps {
+                echo('build the project')
             }
         }
-        stage("Unit Test"){
-            steps{
-                echo("Unit Testing")
+        
+        
+        stage('Test') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    git 'https://github.com/naveenanimation20/March2021EvePom.git'
+                    bat "mvn clean install"
+                }
             }
         }
-        stage("Deploy to DEV"){
-            steps{
-                echo("Deploy to DEV")
+                
+     
+        stage('Publish Allure Reports') {
+           steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '/allure-results']]
+                    ])
+                }
             }
         }
-        stage("Deploy to QA"){
+        
+        
+        stage('Publish Extent Report'){
             steps{
-                echo("Deploy to QA")
-            }
-        }
-        stage("Regression Test"){
-            steps{
-                echo("Regression testing")
-            }
-        }
-        stage("Deploy to Stage"){
-            steps{
-                echo("Deploy to stage")
-            }
-        }
-        stage("Sanity Test"){
-            steps{
-                echo("Sanity testing the project")
-            }
-        }
-        stage("Deploy to PROD"){
-            steps{
-                echo("Deploy to PROD")
+                     publishHTML([allowMissing: false,
+                                  alwaysLinkToLastBuild: false, 
+                                  keepAll: false, 
+                                  reportDir: 'build', 
+                                  reportFiles: 'TestExecutionReport.html', 
+                                  reportName: 'HTML Extent Report', 
+                                  reportTitles: ''])
             }
         }
     }
